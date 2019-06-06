@@ -1,6 +1,6 @@
 import {mapValues, get, isPlainObject} from 'lodash';
 
-const generateWithChillout = (functions, initialState = {}) => {
+const generateChillout = (functions, initialState = {}) => {
 
     const reducer = (state = initialState, action) => {
         const currentFunc = get(functions, action.type);
@@ -27,5 +27,5 @@ const generateWithChillout = (functions, initialState = {}) => {
 };
 
 export {
-    generateWithChillout
+    generateChillout
 };
