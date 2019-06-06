@@ -1,12 +1,18 @@
-import {mapValues, isFunction, get} from 'lodash';
+import {mapValues, get, isPlainObject} from 'lodash';
 
 const generateWithChillout = (functions, initialState = {}) => {
 
     const reducer = (state = initialState, action) => {
         const currentFunc = get(functions, action.type);
-        return isFunction(currentFunc)
-            ? {...state, ...currentFunc(state, action)}
-            : state;
+        try {
+            const newValues = currentFunc(state, action);
+            return isPlainObject(newValues)
+                ? {...state, ...newValues}
+                : newValues;
+
+        } catch (e) {
+            return state;
+        }
     };
 
     const actions = mapValues(
