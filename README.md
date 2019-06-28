@@ -26,7 +26,7 @@ export default reducer;
 
 # Automatic state merge
 
-if you use a plain object for state, not need the tipical spread for merge. It's like the setState in React.
+if you use a plain object state, not need the typical spread operator for merge. It's like the setState in React.
 
 ```javascript
 
