@@ -1,6 +1,6 @@
 {
   "name": "redux-chillout",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "license": "MIT",
   "description": "Redux utility for prevent boilerplate code",
   "author": "Alan Saracho <saracho.alan@gmail.com>",
@@ -8,7 +8,6 @@
   "module": "es/index.js",
   "typings": "./index.d.ts",
   "dependencies": {
-    "lodash": "^4.17.11"
   },
   "scripts": {
     "clean": "rm -rf lib",
@@ -16,7 +15,6 @@
     "browserify": "mkdir -p dist && browserify -s ReduxChillout lib/index.js > dist/redux-chillout.js",
     "minify": "terser dist/redux-chillout.js -o dist/redux-chillout.min.js",
     "prepublish": "npm run clean && npm run build && npm run browserify && npm run minify"
-
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
@@ -37,6 +35,10 @@
     "typescript": "3.4.5"
   },
   "peerDependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "react-redux": "7.1.3",
+    "redux": "4.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
