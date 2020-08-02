@@ -9,8 +9,8 @@ import store from './store';
 import {registeredTransformers} from './transformers';
 import NoopTransformer from './transformers/NoopTransformer';
 
-const createStore = reducers => {
-    const storeInstance = createReduxStore(reducers);
+const createStore = (...params) => {
+    const storeInstance = createReduxStore(...params);
     setStoreInstance(storeInstance);
     return storeInstance;
 }
