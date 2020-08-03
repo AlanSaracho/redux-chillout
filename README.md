@@ -62,45 +62,45 @@ Redux chillout recognize your transformer type and generate an action and a acti
 Create a empty action 
 
 ```javascript
-	fetchValues: null
+fetchValues: null
 ```
 
 - **ArrayTransformer:**
 Use it for setters
 
 ```javascript
-	setValue: ['value'],
-	setUser: ['name', 'id', 'password'],
+setValue: ['value'],
+setUser: ['name', 'id', 'password'],
 ```
 
 - **ActionReducerTransformer:** Action Reducer is a small reducer for a simple action. In case of a plain object state, not need the typical spread operator for merge.
 
 ```javascript
-	removeValue: (state, action) => ({/*...state, unnecessary */ amount: state.amount - action.amount}),
+removeValue: (state, action) => ({/*...state, unnecessary */ amount: state.amount - action.amount}),
 ```
 
 # Custom Transformers
 
 You can create your own transformers.
 ```javascript
-	class MyTransformer = {
-    	static checkType(transformer, actionType) {
-        	return transformer === 'clearAll';
-        }
-        static getActionReducer(transformer, actionType) {
-        	return (state, action) => ({});
-        }
-        static getAction(transformer, actionType) {
-        	return (...params) => ({type: actionType})
-        }
+class MyTransformer = {
+    static checkType(transformer, actionType) {
+	return transformer === 'clearAll';
     }
+    static getActionReducer(transformer, actionType) {
+	return (state, action) => ({});
+    }
+    static getAction(transformer, actionType) {
+	return (...params) => ({type: actionType})
+    }
+}
 
-	addTransformer(myTransformer);
-    console.log(registeredTransformers); // -> show registered transformers
+addTransformer(myTransformer);
+console.log(registeredTransformers); // -> show registered transformers
 ```
 
 
-# Example app
+# Example App
 
 https://github.com/AlanSaracho/eth-wallet
 
