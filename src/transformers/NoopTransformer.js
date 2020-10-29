@@ -11,7 +11,7 @@ class NoopTransformer {
     }
 
     static getAction(transformer, actionName) {
-        return () => ({type: actionName});
+        return payload => ({type: actionName, payload});
     }
 }
 
